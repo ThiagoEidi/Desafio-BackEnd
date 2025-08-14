@@ -22,43 +22,6 @@ namespace Desafio_BackEnd.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Desafio_BackEnd.Models.Deliveryman", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("CnhImagePath")
-                        .HasColumnType("text");
-
-                    b.Property<string>("CnhNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("CnhType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Cnpj")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Identifier")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Deliverymen");
-                });
-
             modelBuilder.Entity("Desafio_BackEnd.Models.Motorcycle", b =>
                 {
                     b.Property<Guid>("Id")

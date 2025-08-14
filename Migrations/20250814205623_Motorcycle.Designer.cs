@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Desafio_BackEnd.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250814144508_Motorcycle")]
+    [Migration("20250814205623_Motorcycle")]
     partial class Motorcycle
     {
         /// <inheritdoc />
