@@ -1,8 +1,10 @@
 using Desafio_BackEnd.Data;
+using Desafio_BackEnd.Interfaces;
+using Desafio_BackEnd.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase")));
@@ -14,7 +16,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
-    db.Database.Migrate(); 
+    db.Database.Migrate();
 
     db.SaveChanges();
 }

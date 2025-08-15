@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Desafio_BackEnd.Data;
 using Desafio_BackEnd.Dtos.Motorcycle;
+using Desafio_BackEnd.Interfaces;
 using Desafio_BackEnd.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,22 +11,18 @@ namespace Desafio_BackEnd.Controllers
     [ApiController]
     public class MotorcycleController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
-        public MotorcycleController(ApplicationDBContext context)
+        private readonly IMotorcycleRepository _repository;
+
+        public MotorcycleController(IMotorcycleRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [HttpGet]
         public IActionResult GetAll([FromQuery] string? plate)
         {
-            var query = _context.Motorcycles.AsQueryable();
-            if (!string.IsNullOrEmpty(plate))
-            {
-                query = query.Where(m => m.Plate.Contains(plate));
-            }
-            var motorcycles = query
-                .ToList()
+            var motorcycles = _repository
+                .GetAll(plate)
                 .Select(m => m.ToMotorcycleDto());
             return Ok(motorcycles);
         }
@@ -36,40 +30,42 @@ namespace Desafio_BackEnd.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById([FromRoute] Guid id)
         {
-            var motorcycle = _context.Motorcycles.Find(id);
+            var motorcycle = _repository.GetById(id);
 
             if (motorcycle == null)
-            {
                 return NotFound();
-            }
+
             return Ok(motorcycle.ToMotorcycleDto());
         }
 
         [HttpPost]
-        public IActionResult Crete([FromBody] CreateMotorcycleRequestDto motorcycleDto)
+        public IActionResult Create([FromBody] CreateMotorcycleRequestDto motorcycleDto)
         {
             var motorcycleModel = motorcycleDto.ToMotorcycleCreateDto();
-            _context.Motorcycles.Add(motorcycleModel);
-            _context.SaveChanges();
+            _repository.Create(motorcycleModel);
             return CreatedAtAction(nameof(GetById), new { id = motorcycleModel.Id }, motorcycleModel.ToMotorcycleDto());
         }
 
         [HttpPatch("{id}/plate")]
         public IActionResult Update([FromRoute] Guid id, [FromBody] UpdateMotorcycleRequestDto updateDto)
         {
-            var motorcycleModel = _context.Motorcycles.FirstOrDefault(x => x.Id == id);
+            var motorcycleModel = _repository.UpdatePlate(id, updateDto.Plate);
 
             if (motorcycleModel == null)
-            {
                 return NotFound();
-            }
-
-            motorcycleModel.Plate = updateDto.Plate;
-
-            _context.SaveChanges();
 
             return Ok(motorcycleModel.ToMotorcycleDto());
+        }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete([FromRoute] Guid id)
+        {
+            var deleted = _repository.Delete(id);
+
+            if (!deleted)
+                return NotFound();
+
+            return NoContent();
         }
     }
 }
