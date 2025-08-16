@@ -30,3 +30,5 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/health", () => Results.Ok(new { status = "API rodando!", time = DateTime.UtcNow }));
 app.MapControllers();
 app.Run();
+
+public partial class Program { }

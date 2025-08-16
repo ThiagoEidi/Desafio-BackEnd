@@ -18,7 +18,7 @@ namespace Desafio_BackEnd.Repository
         }
         public List<Motorcycle> GetAll(string? plate)
         {
-            var query = _context.Motorcycles.AsQueryable();
+            IQueryable<Motorcycle> query = _context.Motorcycles;
             if (!string.IsNullOrEmpty(plate))
             {
                 query = query.Where(m => m.Plate.Contains(plate));
@@ -40,7 +40,7 @@ namespace Desafio_BackEnd.Repository
 
         public Motorcycle? UpdatePlate(Guid id, string plate)
         {
-            var motorcycle = _context.Motorcycles.FirstOrDefault(x => x.Id == id);
+            var motorcycle = _context.Motorcycles.Find(id);
             if (motorcycle == null) return null;
 
             motorcycle.Plate = plate;
@@ -50,7 +50,7 @@ namespace Desafio_BackEnd.Repository
 
         public bool Delete(Guid id)
         {
-            var motorcycle = _context.Motorcycles.FirstOrDefault(x => x.Id == id);
+            var motorcycle = _context.Motorcycles.Find(id);
             if (motorcycle == null) return false;
 
             _context.Motorcycles.Remove(motorcycle);
