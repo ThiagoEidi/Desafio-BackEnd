@@ -1,4 +1,5 @@
 using Desafio_BackEnd.Data;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -23,7 +24,7 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsy
         {
             var descriptor = services.SingleOrDefault(
                 s => s.ServiceType == typeof(DbContextOptions<ApplicationDBContext>));
-           
+
             if (descriptor is not null)
             {
                 services.Remove(descriptor);
@@ -31,8 +32,9 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsy
 
             services.AddDbContext<ApplicationDBContext>(options =>
             {
-                options.UseNpgsql(_dbContainer.GetConnectionString()); 
+                options.UseNpgsql(_dbContainer.GetConnectionString());
             });
+            
         });
     }
 

@@ -121,4 +121,14 @@ public class MotorcycleControllerTests : IntegrationTestBase, IAsyncLifetime
 
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
+
+    [Fact]
+    public async Task GetAllMotorcycles_ShouldReturnForbidden_IfNotAdmin()
+    {
+        AuthenticateAsRole("User"); 
+
+        var response = await HttpClient.GetAsync("/api/motorcycle");
+
+        Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
+    }
 }

@@ -60,5 +60,11 @@ namespace Tests
                 Plate = plate
             };
         }
+
+        protected void AuthenticateAsRole(string role)
+        {
+            HttpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Test", role);
+        }
     }
 }

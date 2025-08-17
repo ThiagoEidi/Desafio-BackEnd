@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Desafio_BackEnd.Dtos.Motorcycle;
 using Desafio_BackEnd.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Desafio_BackEnd.Controllers
 {
@@ -16,6 +17,7 @@ namespace Desafio_BackEnd.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetAll([FromQuery] string? plate)
         {
             var motorcycles = _service.GetAll(plate);
@@ -23,6 +25,7 @@ namespace Desafio_BackEnd.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetById([FromRoute] Guid id)
         {
             var motorcycle = _service.GetById(id);
@@ -34,6 +37,7 @@ namespace Desafio_BackEnd.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create([FromBody] CreateMotorcycleRequestDto motorcycleDto)
         {
             var motorcycle = _service.Create(motorcycleDto);
@@ -41,6 +45,7 @@ namespace Desafio_BackEnd.Controllers
         }
 
         [HttpPatch("{id}/plate")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update([FromRoute] Guid id, [FromBody] UpdateMotorcycleRequestDto updateDto)
         {
             var motorcycle = _service.UpdatePlate(id, updateDto.Plate);
@@ -52,6 +57,7 @@ namespace Desafio_BackEnd.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete([FromRoute] Guid id)
         {
             var deleted = _service.Delete(id);
