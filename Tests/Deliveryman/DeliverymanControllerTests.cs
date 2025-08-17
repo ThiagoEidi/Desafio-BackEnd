@@ -16,6 +16,22 @@ namespace Tests.Deliveryman
         public Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
+        public async Task CreateDeliveryman_ShouldWork()
+        {
+            var createDto = CreateGenericDeliveryman();
+
+            
+            var postResponse = await HttpClient.PostAsJsonAsync("/api/deliveryman", createDto);
+            
+            postResponse.EnsureSuccessStatusCode(); 
+            var created = await postResponse.Content.ReadFromJsonAsync<DeliverymanDto>();
+
+            Assert.NotNull(created);
+            Assert.Equal(createDto.Name, created.Name);
+            Assert.Equal(createDto.Username, created.Username);
+        }
+
+        [Fact]
         public async Task GetDeliverymanById_ShouldReturnNotFound_ForInvalidId()
         {
             var response = await HttpClient.GetAsync($"/api/deliveryman/{Guid.NewGuid()}");

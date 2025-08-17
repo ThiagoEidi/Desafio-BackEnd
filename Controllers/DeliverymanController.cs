@@ -30,16 +30,8 @@ namespace Desafio_BackEnd.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] CreateDeliverymanRequestDto deliverymanDto)
         {
-            try
-            {
-                var deliveryman = _service.Create(deliverymanDto);
-                return CreatedAtAction(nameof(GetById), new { id = deliveryman.Id }, deliveryman);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var deliveryman = _service.Create(deliverymanDto);
+            return CreatedAtAction(nameof(GetById), new { id = deliveryman.Id }, deliveryman);
         }
-
     }
 }

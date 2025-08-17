@@ -63,25 +63,26 @@ namespace Tests
             };
         }
 
-        protected CreateDeliverymanRequestDto CreateGenericDeliveryman(
+        protected Desafio_BackEnd.Models.Deliveryman CreateGenericDeliveryman(
             string identifier = "deliveryman1",
             string name = "Thiago Eidi",
-            string username = "JapinhaBalaTensa",
+            string username = "thiagoeidi1",
             string cnpj = "12354321312141",
             string cnh = "12313123131414",
+            string password = "12134",
             EnumCNHType cnh_type = EnumCNHType.A,
             DateTime? birthDate = null)
         {
-            return new CreateDeliverymanRequestDto
+            return new Desafio_BackEnd.Models.Deliveryman
             {
                 Identifier = identifier,
                 Name = name,
-                Username = username,
-                Password = "123456", 
                 CNPJ = cnpj,
-                CNH= cnh, 
+                Username = username,
+                BirthDate = birthDate ?? new DateTime(1990, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                CNH = cnh, 
                 CNHType = cnh_type,
-                BirthDate = birthDate ?? new DateTime(1995, 5, 12)
+                Password = password, 
             };
         }
 

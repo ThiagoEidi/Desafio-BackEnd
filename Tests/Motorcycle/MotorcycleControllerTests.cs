@@ -24,13 +24,7 @@ public class MotorcycleControllerTests : IntegrationTestBase, IAsyncLifetime
     {
         var moto = CreateGenericMotorcycle();
 
-        var postResponse = await HttpClient.PostAsJsonAsync("/api/motorcycle", new CreateMotorcycleRequestDto
-        {
-            Identifier = moto.Identifier,
-            Model = moto.Model,
-            Year = moto.Year,
-            Plate = moto.Plate
-        });
+        var postResponse = await HttpClient.PostAsJsonAsync("/api/motorcycle", moto);
         postResponse.EnsureSuccessStatusCode();
         var createdMotorcycle = await postResponse.Content.ReadFromJsonAsync<MotorcycleDto>();
 

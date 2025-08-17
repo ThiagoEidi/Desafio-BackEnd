@@ -1,0 +1,39 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">\\wsl.localhost\arch\usr\share\dotnet\sdk\8.0.119\MSBuild.dll</s:String>
+	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">4294967294</s:Int64>
+	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/BuildTool/RecentBuildToolPaths/=_005C_005Cwsl_002Elocalhost_005Carch_005Cusr_005Cshare_005Cdotnet_005Csdk_005C8_002E0_002E119_005CMSBuild_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0c196b34_002D5302_002D4701_002Db79c_002D1d9899b4cee0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2be390f4_002Da76a_002D472b_002D95db_002D5421121bd7f8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork #7" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=763e3d94_002Dfbcc_002D4843_002D96d4_002D3224b00ef4ec/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7cd046e3_002Dfb10_002D4dfa_002D81b9_002Dfc10ce4c6df0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9f105d24_002Dd2a5_002D46ec_002Da206_002D8125e3601fda/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a7f3c141_002D242a_002D435d_002D91f8_002D000e2d73021f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eede363a_002D9b5e_002D4a3a_002Daa3d_002Db8963cb9dba0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateDeliveryman_ShouldWork #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1F43DC0E-9276-3B58-1EC1-9FA9AE973E17::net8.0::Tests.Deliveryman.DeliverymanControllerTests.CreateDeliveryman_ShouldWork&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
