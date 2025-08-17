@@ -19,7 +19,7 @@ namespace Desafio_BackEnd.Services
             _repository = repository;
         }
 
-        public List<MotorcycleDto> GetAll(string? plate = null)
+        public List<MotorcycleDto> GetAll(string? plate)
         {
             return _repository.GetAll(plate).Select(m => m.ToMotorcycleDto()).ToList();;
         }
@@ -37,9 +37,9 @@ namespace Desafio_BackEnd.Services
             return motoModel.ToMotorcycleDto();
         }
 
-        public MotorcycleDto? UpdatePlate(Guid id, string newPlate)
+        public MotorcycleDto? UpdatePlate(Guid id, string Plate)
         {
-            var moto = _repository.UpdatePlate(id, newPlate);
+            var moto = _repository.UpdatePlate(id, Plate);
             return moto?.ToMotorcycleDto();
         }
 

@@ -7,6 +7,7 @@ namespace Desafio_BackEnd.Models
         public Guid Id { get; set; }
         public required string Username { get; set; }
         public required string Password { get; set; }
+        public EnumUserRole Role { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }

@@ -7,7 +7,7 @@ using Desafio_BackEnd.Repositories.Interfaces;
 using Desafio_BackEnd.Models;
 
 
-namespace Desafio_BackEnd.Repository
+namespace Desafio_BackEnd.Repositories
 {
     public class MotorcycleRepository : IMotorcycleRepository
     {

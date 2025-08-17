@@ -12,12 +12,19 @@ namespace Desafio_BackEnd.Data
         }
 
         public DbSet<Motorcycle> Motorcycles { get; set; }
+        public DbSet<Deliveryman> Deliverymen { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Motorcycle>()
                 .HasIndex(m => m.Plate)
                 .IsUnique();
+
+            modelBuilder.Entity<Deliveryman>(entity =>
+            {
+                entity.HasIndex(d => d.CNPJ).IsUnique();
+                entity.HasIndex(d => d.CNH).IsUnique();
+            });
         }
         public override int SaveChanges()
         {

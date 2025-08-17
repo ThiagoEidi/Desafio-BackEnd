@@ -1,6 +1,6 @@
 using Desafio_BackEnd.Data;
 using Desafio_BackEnd.Repositories.Interfaces;
-using Desafio_BackEnd.Repository;
+using Desafio_BackEnd.Repositories;
 using Desafio_BackEnd.Services;
 using Desafio_BackEnd.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
 builder.Services.AddScoped<IMotorcycleService, MotorcycleService>();
+builder.Services.AddScoped<IDeliverymanService, DeliverymanService>();
+builder.Services.AddScoped<IDeliverymanRepository, DeliverymanRepository>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase")));

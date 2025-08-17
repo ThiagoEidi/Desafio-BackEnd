@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Desafio_BackEnd.Data;
+using Desafio_BackEnd.Dtos.Deliveryman;
 using Desafio_BackEnd.Models;
+using Desafio_BackEnd.Models.Utils;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Tests
@@ -58,6 +60,28 @@ namespace Tests
                 Model = model,
                 Year = year,
                 Plate = plate
+            };
+        }
+
+        protected CreateDeliverymanRequestDto CreateGenericDeliveryman(
+            string identifier = "deliveryman1",
+            string name = "Thiago Eidi",
+            string username = "JapinhaBalaTensa",
+            string cnpj = "12354321312141",
+            string cnh = "12313123131414",
+            EnumCNHType cnh_type = EnumCNHType.A,
+            DateTime? birthDate = null)
+        {
+            return new CreateDeliverymanRequestDto
+            {
+                Identifier = identifier,
+                Name = name,
+                Username = username,
+                Password = "123456", 
+                CNPJ = cnpj,
+                CNH= cnh, 
+                CNHType = cnh_type,
+                BirthDate = birthDate ?? new DateTime(1995, 5, 12)
             };
         }
 
