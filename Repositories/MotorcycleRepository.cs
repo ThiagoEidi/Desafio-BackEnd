@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Desafio_BackEnd.Data;
-using Desafio_BackEnd.Interfaces;
+using Desafio_BackEnd.Repositories.Interfaces;
 using Desafio_BackEnd.Models;
 
 
@@ -12,16 +12,18 @@ namespace Desafio_BackEnd.Repository
     public class MotorcycleRepository : IMotorcycleRepository
     {
         private readonly ApplicationDBContext _context;
+
         public MotorcycleRepository(ApplicationDBContext context)
         {
             _context = context;
         }
-        public List<Motorcycle> GetAll(string? plate)
+
+        public List<Motorcycle> GetAll(string? plate = null)
         {
             IQueryable<Motorcycle> query = _context.Motorcycles;
             if (!string.IsNullOrEmpty(plate))
             {
-                query = query.Where(m => m.Plate.Contains(plate));
+                query = query.Where(m => m.Plate == plate);
             }
             return query.ToList();
         }
@@ -31,29 +33,27 @@ namespace Desafio_BackEnd.Repository
             return _context.Motorcycles.Find(id);
         }
 
-        public Motorcycle Create(Motorcycle motorcycle)
+        public void Create(Motorcycle moto)
         {
-            _context.Motorcycles.Add(motorcycle);
+            moto.Id = Guid.NewGuid();
+            _context.Motorcycles.Add(moto);
             _context.SaveChanges();
-            return motorcycle;
         }
 
-        public Motorcycle? UpdatePlate(Guid id, string plate)
+        public Motorcycle? UpdatePlate(Guid id, string newPlate)
         {
-            var motorcycle = _context.Motorcycles.Find(id);
-            if (motorcycle == null) return null;
-
-            motorcycle.Plate = plate;
+            var moto = _context.Motorcycles.Find(id);
+            if (moto == null) return null;
+            moto.Plate = newPlate;
             _context.SaveChanges();
-            return motorcycle;
+            return moto;
         }
 
         public bool Delete(Guid id)
         {
-            var motorcycle = _context.Motorcycles.Find(id);
-            if (motorcycle == null) return false;
-
-            _context.Motorcycles.Remove(motorcycle);
+            var moto = _context.Motorcycles.Find(id);
+            if (moto == null) return false;
+            _context.Motorcycles.Remove(moto);
             _context.SaveChanges();
             return true;
         }

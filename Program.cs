@@ -1,10 +1,13 @@
 using Desafio_BackEnd.Data;
-using Desafio_BackEnd.Interfaces;
+using Desafio_BackEnd.Repositories.Interfaces;
 using Desafio_BackEnd.Repository;
+using Desafio_BackEnd.Services;
+using Desafio_BackEnd.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IMotorcycleRepository, MotorcycleRepository>();
+builder.Services.AddScoped<IMotorcycleService, MotorcycleService>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase")));

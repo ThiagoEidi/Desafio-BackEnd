@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using Desafio_BackEnd.Models;
 
 
-namespace Desafio_BackEnd.Interfaces
+namespace Desafio_BackEnd.Repositories.Interfaces
 {
     public interface IMotorcycleRepository
     {
-        List<Motorcycle> GetAll(string? plate);
         Motorcycle? GetById(Guid id);
-        Motorcycle Create(Motorcycle motorcycle);
-        Motorcycle? UpdatePlate(Guid id, string plate);
+        List<Motorcycle> GetAll(string? plate = null);
+        void Create(Motorcycle moto);
+        Motorcycle? UpdatePlate(Guid id, string newPlate);
         bool Delete(Guid id);
     }
 }
