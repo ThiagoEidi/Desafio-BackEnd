@@ -18,7 +18,9 @@ namespace Desafio_BackEnd.Mappers
                 Identifier = motorcycleModel.Identifier,
                 Year = motorcycleModel.Year,
                 Model = motorcycleModel.Model,
-                Plate = motorcycleModel.Plate
+                Plate = motorcycleModel.Plate,
+                CreatedAt = motorcycleModel.CreatedAt,
+                UpdatedAt = motorcycleModel.UpdatedAt
             };
         }
 
@@ -30,6 +32,7 @@ namespace Desafio_BackEnd.Mappers
                 Year = motorcycleDto.Year,
                 Model = motorcycleDto.Model,
                 Plate = motorcycleDto.Plate
+            
             };
         }
     }

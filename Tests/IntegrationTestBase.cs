@@ -33,12 +33,12 @@ namespace Tests
             await context.SaveChangesAsync();
         }
 
-        protected async Task ClearDataAsync<T>() where T : class
-        {
-            using var context = await GetDbContextAsync();
-            context.Set<T>().RemoveRange(context.Set<T>());
-            await context.SaveChangesAsync();
-        }
+        // protected async Task ClearDataAsync<T>() where T : class
+        // {
+        //     using var context = await GetDbContextAsync();
+        //     context.Set<T>().RemoveRange(context.Set<T>());
+        //     await context.SaveChangesAsync();
+        // }
         protected async Task ResetDatabaseAsync()
         {
             using var context = await GetDbContextAsync();
