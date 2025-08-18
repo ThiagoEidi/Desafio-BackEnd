@@ -1,27 +1,44 @@
-# Desafio backend Mottu.
-Seja muito bem-vindo ao desafio backend da Mottu, obrigado pelo interesse em fazer parte do nosso time e ajudar a melhorar a vida de milhares de pessoas.
+## Configuração do ambiente
 
-## Instruções
-- O desafio é válido para diversos níveis, portanto não se preocupe se não conseguir resolver por completo.
-- A aplicação só será avaliada se estiver rodando, se necessário crie um passo a passo para isso.
-- Faça um clone do repositório em seu git pessoal para iniciar o desenvolvimento e não cite nada relacionado a Mottu.
-- Após teste realizado, favor encaminha-lo via Link abaixo:
-Link: [Formulário - Mottu - Desafio Backend](https://forms.office.com/r/25yMPCax5S)
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+```bash
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=123
+POSTGRES_DB=db
+```
+Você pode alterar os valores conforme necessário.
+
+## Rodando a aplicação
+
+Com o Docker e Docker Compose instalados, execute:
+
+```bash
+docker compose up
+```
+Isso irá subir tanto a aplicação quanto o banco de dados
+
+## Acesso à documentação da API
+![Swagger](http://localhost:8080/swagger/)
+
+## Executando os testes
+
+1. Faça o build do projeto na raiz:
+```bash
+dotnet build
+```
+2. Rode os testes:
+```bash
+dotnet test
+```
+
 
 ## Requisitos não funcionais 
-- A aplicação deverá ser construida com .Net utilizando C#.
-- Utilizar apenas os seguintes bancos de dados (Postgress, MongoDB)
-    - Não utilizar PL/pgSQL
-- Escolha o sistema de mensageria de sua preferencia( RabbitMq, Sqs/Sns , Kafka, Gooogle Pub/Sub ou qualquer outro)
+- A aplicação é construida com .Net utilizando C#.
+- Utilizando Postgress
 
 ## Aplicação a ser desenvolvida
-Seu objetivo é criar uma aplicação para gerenciar aluguel de motos e entregadores. Quando um entregador estiver registrado e com uma locação ativa poderá também efetuar entregas de pedidos disponíveis na plataforma.
-
-Iremos executar um teste de integração para validar os cenários de uso. Por isso, sua aplicação deve seguir exatamente as especificações de API`s Rest do nosso Swager: request, response e status code.
-Garanta que os atributos dos JSON`s e estão de acordo com o Swagger abaixo.
-
-Swagger de referência:
-https://app.swaggerhub.com/apis-docs/Mottu/mottu_desafio_backend/1.0.0
+O objetivo é criar uma aplicação para gerenciar aluguel de motos e entregadores. Quando um entregador estiver registrado e com uma locação ativa poderá também efetuar entregas de pedidos disponíveis na plataforma.
 
 ### Casos de uso
 - Eu como usuário admin quero cadastrar uma nova moto.
@@ -59,18 +76,4 @@ https://app.swaggerhub.com/apis-docs/Mottu/mottu_desafio_backend/1.0.0
     - Quando a data informada for superior a data prevista do término, será cobrado um valor adicional de R$50,00 por diária adicional.
     
 
-## Diferenciais 🚀
-- Testes unitários
-- Testes de integração
-- EntityFramework e/ou Dapper
-- Docker e Docker Compose
-- Design Patterns
-- Documentação
-- Tratamento de erros
-- Arquitetura e modelagem de dados
-- Código escrito em língua inglesa
-- Código limpo e organizado
-- Logs bem estruturados
-- Seguir convenções utilizadas pela comunidade
-  
 

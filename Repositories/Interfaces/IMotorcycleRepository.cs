@@ -9,10 +9,10 @@ namespace Desafio_BackEnd.Repositories.Interfaces
 {
     public interface IMotorcycleRepository
     {
-        Motorcycle? GetById(Guid id);
+        Motorcycle GetById(Guid id);
         List<Motorcycle> GetAll(string? plate);
         void Create(Motorcycle moto);
-        Motorcycle? UpdatePlate(Guid id, string Plate);
+        Motorcycle UpdatePlate(Guid id, string Plate);
         bool Delete(Guid id);
     }
 }

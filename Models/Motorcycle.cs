@@ -9,6 +9,7 @@ namespace Desafio_BackEnd.Models
         public required int Year { get; set; }
         public required string Model { get; set; }
         public required string Plate { get; set; }   
+        public EnumStatusMotorcycle Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }

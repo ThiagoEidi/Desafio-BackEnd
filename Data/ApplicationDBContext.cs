@@ -13,6 +13,7 @@ namespace Desafio_BackEnd.Data
 
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<Deliveryman> Deliverymen { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
