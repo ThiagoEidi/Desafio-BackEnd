@@ -19,7 +19,9 @@ docker compose up
 Isso irá subir tanto a aplicação quanto o banco de dados
 
 ## Acesso à documentação da API
-![Documentação](http://localhost:8080/swagger/)
+```bash
+http://localhost:8080/swagger/
+```
 
 ## Executando os testes
 
