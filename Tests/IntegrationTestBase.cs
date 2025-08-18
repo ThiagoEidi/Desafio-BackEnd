@@ -21,11 +21,6 @@ namespace Tests
             HttpClient = factory.CreateClient();
         }
 
-        protected async Task<ApplicationDBContext> GetDbContextAsync()
-        {
-            return await _factory.GetDbContextAsync();
-        }
-        
         public virtual async Task InitializeAsync()
         {
             await _factory.ResetDatabaseAsync();
@@ -38,22 +33,9 @@ namespace Tests
 
         protected async Task SeedDataAsync<T>(params T[] entities) where T : class
         {
-            using var context = await GetDbContextAsync();
+            using var context = await _factory.GetDbContextAsync();
             await context.Set<T>().AddRangeAsync(entities);
             await context.SaveChangesAsync();
-        }
-
-        // protected async Task ClearDataAsync<T>() where T : class
-        // {
-        //     using var context = await GetDbContextAsync();
-        //     context.Set<T>().RemoveRange(context.Set<T>());
-        //     await context.SaveChangesAsync();
-        // }
-        protected async Task ResetDatabaseAsync()
-        {
-            using var context = await GetDbContextAsync();
-            await context.Database.EnsureDeletedAsync();
-            await context.Database.EnsureCreatedAsync();
         }
 
         protected Motorcycle CreateGenericMotorcycle(

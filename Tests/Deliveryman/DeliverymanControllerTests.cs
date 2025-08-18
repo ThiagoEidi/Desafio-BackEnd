@@ -15,17 +15,17 @@ namespace Tests.Deliveryman
         [Fact]
         public async Task CreateDeliveryman_ShouldWork()
         {
-            var createDto = CreateGenericDeliveryman();
+            var deliveryman = CreateGenericDeliveryman();
 
             
-            var postResponse = await HttpClient.PostAsJsonAsync("/api/deliveryman", createDto);
+            var postResponse = await HttpClient.PostAsJsonAsync("/api/deliveryman", deliveryman);
             
             postResponse.EnsureSuccessStatusCode(); 
             var created = await postResponse.Content.ReadFromJsonAsync<DeliverymanDto>();
 
             Assert.NotNull(created);
-            Assert.Equal(createDto.Name, created.Name);
-            Assert.Equal(createDto.Username, created.Username);
+            Assert.Equal(deliveryman.Name, created.Name);
+            Assert.Equal(deliveryman.Username, created.Username);
         }
 
         [Fact]
