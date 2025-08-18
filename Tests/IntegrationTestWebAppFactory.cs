@@ -34,18 +34,34 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsy
             {
                 options.UseNpgsql(_dbContainer.GetConnectionString());
             });
-            
+
         });
     }
 
     public async Task InitializeAsync()
     {
         await _dbContainer.StartAsync();
+        await ResetDatabaseAsync();
     }
 
     public async new Task DisposeAsync()
     {
         await _dbContainer.StopAsync();
-        await _dbContainer.DisposeAsync();
+        await base.DisposeAsync();
+    }
+
+    public async Task ResetDatabaseAsync()
+    {
+        using var scope = Services.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
+
+        await context.Database.EnsureDeletedAsync();
+        await context.Database.EnsureCreatedAsync();
+    }
+    
+    public async Task<ApplicationDBContext> GetDbContextAsync()
+    {
+        var scope = Services.CreateScope();
+        return scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
     }
 }

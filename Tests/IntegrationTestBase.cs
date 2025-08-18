@@ -10,22 +10,30 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Tests
 {
-    public abstract class IntegrationTestBase : IClassFixture<IntegrationTestWebAppFactory>
+    public abstract class IntegrationTestBase : IClassFixture<IntegrationTestWebAppFactory>, IAsyncLifetime
     {
-        protected readonly IntegrationTestWebAppFactory Factory;
+        protected readonly IntegrationTestWebAppFactory _factory;
         protected readonly HttpClient HttpClient;
 
         protected IntegrationTestBase(IntegrationTestWebAppFactory factory)
         {
-            Factory = factory;
+            _factory = factory;
             HttpClient = factory.CreateClient();
         }
 
         protected async Task<ApplicationDBContext> GetDbContextAsync()
         {
-            var scope = Factory.Services.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<ApplicationDBContext>();
-            return context;
+            return await _factory.GetDbContextAsync();
+        }
+        
+        public virtual async Task InitializeAsync()
+        {
+            await _factory.ResetDatabaseAsync();
+        }
+
+        public virtual async Task DisposeAsync()
+        {
+            HttpClient?.Dispose();
         }
 
         protected async Task SeedDataAsync<T>(params T[] entities) where T : class

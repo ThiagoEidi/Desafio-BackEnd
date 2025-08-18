@@ -7,13 +7,10 @@ using Xunit;
 
 namespace Tests.Deliveryman
 {
-    public class DeliverymanControllerTests : IntegrationTestBase, IAsyncLifetime
+    public class DeliverymanControllerTests : IntegrationTestBase
     {
         public DeliverymanControllerTests(IntegrationTestWebAppFactory factory)
             : base(factory) { }
-
-        public async Task InitializeAsync() => await ResetDatabaseAsync();
-        public Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
         public async Task CreateDeliveryman_ShouldWork()

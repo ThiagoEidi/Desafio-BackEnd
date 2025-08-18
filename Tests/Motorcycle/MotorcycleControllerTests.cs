@@ -7,17 +7,10 @@ using Xunit;
 
 namespace Tests;
 
-public class MotorcycleControllerTests : IntegrationTestBase, IAsyncLifetime
+public class MotorcycleControllerTests : IntegrationTestBase
 {
     public MotorcycleControllerTests(IntegrationTestWebAppFactory factory)
         : base(factory) { }
-
-    public async Task InitializeAsync()
-    {
-        await ResetDatabaseAsync();
-    }
-
-    public Task DisposeAsync() => Task.CompletedTask;
 
     [Fact]
     public async Task CreateAndGetMotorcycle_ShouldWork()
