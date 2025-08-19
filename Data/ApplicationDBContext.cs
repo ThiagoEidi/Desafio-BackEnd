@@ -43,17 +43,16 @@ namespace Desafio_BackEnd.Data
         {
             var entries = ChangeTracker
                 .Entries()
-                .Where(e => e.Entity is ITimestamp &&
+                .Where(e => e.Entity is Timestamp &&
                             (e.State == EntityState.Added || e.State == EntityState.Modified));
 
             foreach (var entityEntry in entries)
             {
-                var entity = (ITimestamp)entityEntry.Entity;
+                var entity = (Timestamp)entityEntry.Entity;
                 entity.UpdatedAt = DateTime.UtcNow;
                 if (entityEntry.State == EntityState.Added)
                     entity.CreatedAt = DateTime.UtcNow;
             }
         }
-        
     }
 }

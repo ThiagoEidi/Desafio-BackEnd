@@ -16,8 +16,6 @@ namespace Desafio_BackEnd.Mappers
                 Username = deliveryman.Username,
                 Cnpj = deliveryman.CNPJ,
                 BirthDate = deliveryman.BirthDate,
-                CreatedAt = deliveryman.CreatedAt,
-                UpdatedAt = deliveryman.UpdatedAt,
             };
         }
 

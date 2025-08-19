@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Desafio_BackEnd.Models.Utils
 {
-    public interface ITimestamp
+    public abstract class Timestamp
     {
-        DateTime CreatedAt { get; set; }
-        DateTime UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

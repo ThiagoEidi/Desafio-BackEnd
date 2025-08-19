@@ -6,7 +6,7 @@ using Desafio_BackEnd.Models.Utils;
 
 namespace Desafio_BackEnd.Models
 {
-    public class Rental : ITimestamp
+    public class Rental : Timestamp
     {
         public Guid Id { get; set; }
         public required Guid Deliveryman { get; set; }
@@ -15,8 +15,6 @@ namespace Desafio_BackEnd.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime ExpectedFinish { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
         public Decimal Value { get; set; }
     }
 }
